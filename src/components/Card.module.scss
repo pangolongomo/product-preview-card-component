@@ -1,0 +1,90 @@
+@import "../assets/scss/varaibles";
+aside {
+  max-width: 768px;
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: $white;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  img {
+    width: 50%;
+    &.imgMobile {
+      display: none;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      &.imgMobile {
+        display: block;
+      }
+      &.imgDesktop {
+        display: none;
+      }
+    }
+  }
+  .content {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    h2 {
+      font-size: 3rem;
+      line-height: 1;
+      font-family: "Fraunces", serif;
+      font-variation-settings: "SOFT" 0, "WONK" 0;
+      color: $very-dark-blue;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    .price {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+      align-items: center;
+      .new {
+        font-size: 3rem;
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        color: $dark-cyan;
+      }
+      .old {
+        text-decoration: line-through;
+      }
+    }
+    .addToCard {
+      width: 100%;
+      background: $dark-cyan;
+      color: $white;
+      padding: 1.4rem 0;
+      border: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $very-dark-blue;
+      }
+      img {
+        width: 1.2rem;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
