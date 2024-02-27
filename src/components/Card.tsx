@@ -2,16 +2,26 @@ import styles from "./Card.module.scss";
 import perfumeImg from "../assets/images/image-product-desktop.jpg";
 import perfumeImgMobile from "../assets/images/image-product-mobile.jpg";
 import cartIcon from "../assets/images/icon-cart.svg";
+import { useEffect, useState } from "react";
 
 function Card() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+
+    return () => window.removeEventListener("resize", handleResizeWindow);
+  }, []);
+
   return (
     <aside>
-      <img className={styles.imgDesktop} src={perfumeImg} alt="perfume image" />
       <img
-        className={styles.imgMobile}
-        src={perfumeImgMobile}
-        alt="perfume image mobile"
+        className={styles.imgDesktop}
+        src={width > 768 ? perfumeImg : perfumeImgMobile}
+        alt="perfume image"
       />
+
       <div className={styles.content}>
         <h3>Perfume</h3>
         <h2>Gabrielle Essence Eau De Parfum</h2>
